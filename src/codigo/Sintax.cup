@@ -1,0 +1,27 @@
+package codigo;
+
+import java_cup.runtime.Symbol;
+
+parser code
+
+{:
+    private Symbol s;
+
+    public void syntax_error(Symbol s){
+        this.s = s;
+    }
+
+    public Symbol getS(){
+    return this.s;
+    }
+
+:};
+
+terminal Int, If, Else, While, Igual, Suma, Resta, Multiplicacion,Division, Identificador, Numero, ERROR;
+
+non terminal INICIO;
+
+
+start with INICIO;
+INICIO::= Identificador Igual Identificador  Suma Identificador  Resta Identificador  Multiplicacion Identificador Division Identificador
+;
